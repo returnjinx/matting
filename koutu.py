@@ -5,14 +5,7 @@ import paddlehub as hub
 from PIL import Image, ImageSequence
 import numpy as np
 import os
-import sys
-import calendar
 import time
-
-
-
-
-
 
 # 测试图片路径和输出路径
 test_path = ''  #按需更改路径
@@ -23,18 +16,9 @@ dirs = os.listdir(input_path)
 typeList={'.jpg' , '.png' , '.jpeg' , 'webm'}
 for diretion in dirs:
     fileType =os.path.splitext(diretion)[-1].lower()
-    # print(fileType)
-    if  fileType in typeList:
+    if fileType in typeList:
       files.append(input_path + diretion)
       print(fileType ,"存在")
-    # else :
-      # print(fileType ,"不存在")
-    # if fileType == '.jpg' or '.png' or 'jpeg' or 'webm' :
-    #   print(fileType)
-    
-
-    # files.append(input_path + diretion)
-
 # 待预测图片
 test_img_path = ["1.jpeg"]  #按需更改文件名
 # test_img_path = [test_path + img for img in test_img_path]
@@ -52,7 +36,6 @@ t = int(round(time.time() * 1000))
 for result in results:
     # print(result['save_path'])
     t =t+1
-    
     print("Current timestamp:",  str(t))
     os.rename(result['save_path'], 'humanseg_output'+os.sep+str(t)+os.path.splitext(result['save_path'])[-1].lower())
 
