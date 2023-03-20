@@ -6,7 +6,11 @@ from PIL import Image, ImageSequence
 import numpy as np
 import os
 import sys
-import imghdr
+import calendar
+import time
+
+
+
 
 
 
@@ -18,10 +22,7 @@ files = []
 dirs = os.listdir(input_path)
 typeList={'.jpg' , '.png' , '.jpeg' , 'webm'}
 for diretion in dirs:
-    # imgType = imghdr.what(diretion)
-    
-    # print(imgType)
-    fileType =os.path.splitext(diretion)[-1]
+    fileType =os.path.splitext(diretion)[-1].lower()
     # print(fileType)
     if  fileType in typeList:
       files.append(input_path + diretion)
@@ -47,8 +48,13 @@ input_dict = {"image": test_img_path}
 # execute predict and print the result
 results = module.segmentation(data=input_dict,output_dir=out_path,visualization=True)
 print(results)
+t = int(round(time.time() * 1000))
 for result in results:
-    print(result)
+    # print(result['save_path'])
+    t =t+1
+    
+    print("Current timestamp:",  str(t))
+    os.rename(result['save_path'], 'humanseg_output'+os.sep+str(t)+os.path.splitext(result['save_path'])[-1].lower())
 
 
 
