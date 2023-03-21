@@ -1,0 +1,19 @@
+{
+  "name": "paddlehub",
+  "version": "1.0.0",
+  "description": "pip install matplotlib  \r pip install pillow  \r pip install PaddlePaddle  \r pip install paddlehub==1.6.0  \r hub install deeplabv3p_xception65_humanseg==1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/returnjinx/matting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/returnjinx/matting/issues"
+  },
+  "homepage": "https://github.com/returnjinx/matting#readme"
+}
